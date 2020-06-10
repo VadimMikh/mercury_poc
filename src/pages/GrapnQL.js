@@ -6,9 +6,16 @@ import Card from '../components/Card';
 
 const TEST_DATA = gql`
 	{
-		rates(currency: "USD") {
-			currency
-			rate
+		users {
+			id
+			username
+			email
+				website
+			company {
+			  name
+			  catchPhrase
+			  bs
+			}
 		}
 	}
 `;
@@ -16,17 +23,27 @@ const TEST_DATA = gql`
 const GrapnQL = () => {
 	// const { loading, error, data } = useQuery(TEST_DATA);
 	const [ getData, { loading, data } ] = useLazyQuery(TEST_DATA);
-	console.log('graphql response:', data);
+	const fetched = data?.users.length
+	console.log('graphql response:', data)
 
 	return (
 		<Fragment>
 			<div className="text-center">
-				<button className="btn btn-warning mb-4" onClick={() => getData()}>Make GraphQL request</button>
+				<button 
+					className="btn btn-warning mb-4" 
+					disabled={fetched}
+					onClick={() => getData()}>
+					Make GraphQL request
+				</button>
 			</div>
-			{ data && <div className="row justify-content-center"><h2 className="mb-4">Rates to USD:</h2></div> }
+			{ data && (
+				<div className="row justify-content-center">
+					<h2 className="mb-4">Users' cards</h2>
+				</div>
+			)}
 			<div className="row d-flex flex-wrap justify-content-around py-4">
 				{ !loading 
-					? (data && data.rates.length && data.rates.map(card => <Card card={card} key={card.currency} />)) 
+					? (data && data.users.length && data.users.map(user => <Card user={user} key={user.id} />)) 
 					: <span>GraphQL request in process...</span> }
 			</div>
 		</Fragment>

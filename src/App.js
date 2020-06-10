@@ -15,7 +15,7 @@ import Detailpage from './pages/Detailpage';
 import GraphQL from './pages/GrapnQL';
 
 const client = new ApolloClient({
-    uri: 'https://48p1r2roz4.sse.codesandbox.io',
+    uri: 'https://api.graphqlplaceholder.com',
 });
 
 const App = () => (
