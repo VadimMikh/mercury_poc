@@ -1,28 +1,11 @@
 import React, { Fragment } from 'react';
 import { useLazyQuery } from '@apollo/react-hooks';
-import { gql } from 'apollo-boost';
 import Card from '../components/Card';
-
-
-const TEST_DATA = gql`
-	{
-		users {
-			id
-			username
-			email
-				website
-			company {
-			  name
-			  catchPhrase
-			  bs
-			}
-		}
-	}
-`;
+import { USERS } from '../graphql/requests';
 
 const GrapnQL = () => {
-	// const { loading, error, data } = useQuery(TEST_DATA);
-	const [ getData, { loading, data } ] = useLazyQuery(TEST_DATA);
+	// const { loading, error, data } = useQuery(USERS);
+	const [ getData, { loading, data } ] = useLazyQuery(USERS);
 	const fetched = data?.users.length
 	console.log('graphql response:', data)
 

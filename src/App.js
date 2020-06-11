@@ -13,9 +13,10 @@ import Home from './pages/Home'
 import About from './pages/About';
 import Detailpage from './pages/Detailpage';
 import GraphQL from './pages/GrapnQL';
+import { GRAPHQL_PLACEHOLDER } from './graphql/servers';
 
 const client = new ApolloClient({
-    uri: 'https://api.graphqlplaceholder.com',
+    uri: GRAPHQL_PLACEHOLDER,
 });
 
 const App = () => (
