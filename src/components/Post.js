@@ -17,5 +17,5 @@ const Post = ({ post }) => {
 export default Post;
 
 Post.propTypes = {
-    post: PropTypes.array
+    post: PropTypes.object
 }

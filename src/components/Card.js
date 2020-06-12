@@ -17,5 +17,5 @@ const Card = ({ user }) => {
 export default Card;
 
 Card.propTypes = {
-    post: PropTypes.array
+    user: PropTypes.object
 }
