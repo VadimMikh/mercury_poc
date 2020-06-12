@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
 const Card = ({ user }) => {
     return (
@@ -14,3 +15,7 @@ const Card = ({ user }) => {
 }
 
 export default Card;
+
+Card.propTypes = {
+    post: PropTypes.array
+}
