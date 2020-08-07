@@ -1,0 +1,11 @@
+:local(.root) {
+    background-color: aquamarine;
+}
+
+:local(.content) {
+    padding: 20px;
+}
+
+:local(.block) {
+    border: 1px solid #000000;
+}

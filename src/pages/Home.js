@@ -7,12 +7,13 @@ export default () => {
 	const posts = useSelector(state => state.data.posts)
 	const loader = useSelector(state => state.data.loading)
 	const showbutton = useSelector(state => state.data.showbutton)
+	const additionalPostsCount = 10
 
 	const dispatch = useDispatch()
 
 	const fetchData = async (event) => {
 		dispatch(showLoader())
-		await dispatch(fetchDataAction())
+		await dispatch(fetchDataAction(additionalPostsCount))
 		dispatch(hideLoader())
 		dispatch(hideButton())
 	}

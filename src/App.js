@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import {
 	BrowserRouter as Router,
 	NavLink,
@@ -6,16 +6,18 @@ import {
 	Switch,
 	Route
   } from "react-router-dom";
-import ApolloClient from 'apollo-boost';
-import { ApolloProvider } from '@apollo/react-hooks';
-import 'bootstrap/dist/css/bootstrap.min.css'
+import ApolloClient from 'apollo-boost'
+import { ApolloProvider } from '@apollo/react-hooks'
+import './theme.scss'
 import Home from './pages/Home'
-import About from './pages/About';
-import Detailpage from './pages/Detailpage';
-import GraphQL from './pages/GrapnQL';
+import About from './pages/About'
+import Detailpage from './pages/Detailpage'
+import GraphQL from './pages/GrapnQL'
+import { GRAPHQL_PLACEHOLDER } from './graphql/servers'
+import classes from './main.css'
 
 const client = new ApolloClient({
-    uri: 'https://48p1r2roz4.sse.codesandbox.io',
+    uri: GRAPHQL_PLACEHOLDER,
 });
 
 const App = () => (
@@ -40,19 +42,21 @@ const App = () => (
 				</ul>
 				</div>
 			</nav>
-			<div className="container py-4">
-				<Switch>
-					<Route path="/graphql">
-						<GraphQL />
-					</Route>
-					<Route path="/about">
-						<About />
-					</Route>
-					<Route path="/post/:id" children={<Detailpage />} />
-					<Route path="/">
-						<Home />
-					</Route>
-				</Switch>
+			<div className={classes.root}>
+				<div className={`${classes.content} container py-4`}>
+					<Switch>
+						<Route path="/graphql">
+							<GraphQL />
+						</Route>
+						<Route path="/about">
+							<About />
+						</Route>
+						<Route path="/post/:id" children={<Detailpage />} />
+						<Route path="/">
+							<Home />
+						</Route>
+					</Switch>
+				</div>
 			</div>
 		</Router>
 	</ApolloProvider>

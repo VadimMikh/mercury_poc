@@ -1,7 +1,9 @@
-export function fetchDataAction() {
+import { GET_POSTS_COUNT } from '../rest/endpionts';
+
+export function fetchDataAction(count) {
     return async dispatch => {
         try {
-            const response = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=10')
+            const response = await fetch(`${GET_POSTS_COUNT}${count}`)
             const json = await response.json()
             dispatch({type: 'FETCH_DATA', payload: json})
         } catch (error) {

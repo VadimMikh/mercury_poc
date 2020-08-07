@@ -1,0 +1,1 @@
+export const GRAPHQL_PLACEHOLDER = 'https://api.graphqlplaceholder.com';
