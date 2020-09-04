@@ -30,7 +30,7 @@ const GrapnQL = () => {
 			)}
 			<div className="row d-flex flex-wrap justify-content-around py-4">
 				{ !loading 
-					? (data && data.users.length && data.users.map(user => <Card user={user} key={user.id} />)) 
+					? (data && data.users?.data.length && data.users.data.map(user => <Card user={user} key={user.id} />)) 
 					: <span>GraphQL request in process...</span> }
 			</div>
 		</Fragment>
